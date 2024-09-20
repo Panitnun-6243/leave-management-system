@@ -47,10 +47,15 @@ function TodoList({ todos }: TodoListProps) {
 	return (
 		<ul>
 			{todos.map((item) => (
-				<li key={item.id}>Todo: {item.title}</li>
+				// {...item} -> title={item.title} id={item.id}
+				<TodoItem key={item.id} {...item} />
 			))}
 		</ul>
 	)
+}
+
+function TodoItem({ title }: Todo) {
+	return <li>Todo: {title}</li>
 }
 
 export default function Home() {
